@@ -36,7 +36,7 @@ rl.on('line', (input) => {
     console.log(clauses.map(i => i.toString()).join(', '));
     console.log();
 
-    const tree = refute(clauses);
+    const tree = refute(clauses, 3000);
     if (tree === null) {
       console.log('cannot be proven');
     } else {
@@ -46,7 +46,7 @@ rl.on('line', (input) => {
       }
     }
   } catch (err) {
-    console.error(err);
+    console.log(`error: ${err.message}`);
   }
   rl.prompt();
 });

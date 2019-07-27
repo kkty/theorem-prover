@@ -602,7 +602,9 @@ export function getClauses(formula: Formula): Clause[] {
     });
 }
 
-export function refute(initialClauses: Clause[]): ResolutionTree | null {
+export function refute(initialClauses: Clause[], timeout: number | null = null): ResolutionTree | null {
+  const start = Date.now();
+
   const resolutions: Resolution[] = [];
 
   while (true) {
@@ -618,6 +620,8 @@ export function refute(initialClauses: Clause[]): ResolutionTree | null {
     for (const clause1 of availableClauses) {
       for (const clause2 of availableClauses) {
         for (const resolution of Resolution.execute(clause1, clause2)) {
+          if (timeout && Date.now() - start >= timeout) throw new Error('refutation timeout');
+
           // ignore it if we have seen the same resolvent before
           if (resolutions.find(({ resolvent }) => Clause.isEqual(resolvent, resolution.resolvent))) continue;
 
