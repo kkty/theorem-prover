@@ -579,7 +579,7 @@ export function skolemize(formula: Formula): Formula {
         f.variable,
         new FuncApplication(
           skolemFunc,
-          variables,
+          [...variables],
         ),
       ),
     );
