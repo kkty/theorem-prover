@@ -617,25 +617,10 @@ export function refute(initialClauses: Clause[]): ResolutionTree | null {
     // try all combinations of clauses
     for (const clause1 of availableClauses) {
       for (const clause2 of availableClauses) {
-        const visited = (() => {
-          for (const resolution of resolutions) {
-            if (
-              Clause.isEqual(clause1, resolution.left)
-              && Clause.isEqual(clause2, resolution.right)
-            ) {
-              return true;
-            }
-          }
+        for (const resolution of Resolution.execute(clause1, clause2)) {
+          // ignore it if we have seen the same resolvent before
+          if (resolutions.find(({ resolvent }) => Clause.isEqual(resolvent, resolution.resolvent))) continue;
 
-          return false;
-        })();
-
-        // not to repeat the same resolution
-        if (visited) continue;
-
-        const newResolutions = Resolution.execute(clause1, clause2);
-
-        for (const resolution of newResolutions) {
           resolutions.push(resolution);
           updated = true;
         }
