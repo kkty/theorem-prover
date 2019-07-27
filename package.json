@@ -1,0 +1,37 @@
+{
+   "name": "theorem-prover",
+   "description": "A first-logic theorem prover written in TypeScript",
+   "repository": {
+      "type": "git",
+      "url": "git+ssh://git@github.com/kkty/theorem-prover"
+   },
+   "author": "Kazushi Kitaya <kazushikitaya@gmail.com>",
+   "license": "MIT",
+   "bin": {
+      "theorem-prover": "./bin/cli.js"
+   },
+   "version": "0.0.1",
+   "scripts": {
+      "build": "tsc",
+      "dev": "ts-node ./src/cli.ts",
+      "test": "mocha --recursive --require ts-node/register \"test/**/*.ts\"",
+      "lint": "tslint 'src/**/*.ts' 'test/**/*.ts'",
+      "lint:fix": "npm run lint -- --fix",
+      "postinstall": "npm run build"
+   },
+   "dependencies": {
+      "@types/node": "^12.6.2",
+      "pegjs": "^0.10.0",
+      "typescript": "^3.5.3"
+   },
+   "devDependencies": {
+      "@types/chai": "^4.1.7",
+      "@types/mocha": "^5.2.7",
+      "@types/pegjs": "^0.10.1",
+      "chai": "^4.2.0",
+      "mocha": "^6.1.4",
+      "ts-node": "^8.3.0",
+      "tslint": "^5.18.0",
+      "tslint-config-airbnb": "^5.11.1"
+   }
+}
