@@ -36,13 +36,26 @@ rl.on('line', (input) => {
     console.log(clauses.map(i => i.toString()).join(', '));
     console.log();
 
-    const tree = refute(clauses, 3000);
-    if (tree === null) {
+    const result = refute(clauses, 5000);
+
+    if (result === null) {
       console.log('cannot be proven');
     } else {
+      const { resolutions, instantiations } = result;
+
       console.log('proof found');
-      for (const clauses of tree.reverse()) {
-        console.log(clauses.map(i => i.toString()).join(' '));
+      console.log();
+
+      console.log('instantiations');
+      for (const [to, from] of instantiations) {
+        console.log(`${to.toString()} -> ${from.toString()}`);
+      }
+      console.log();
+
+      console.log('resolutions');
+
+      for (const resolution of resolutions) {
+        console.log(`(${resolution.left.toString()}, ${resolution.right.toString()}) -> ${resolution.resolvent.toString()}`);
       }
     }
   } catch (err) {
