@@ -77,7 +77,7 @@ export class Negation {
   ) { }
 
   toString(): string {
-    return `¬${this.formula.toString()}`;
+    return `¬(${this.formula.toString()})`;
   }
 }
 
