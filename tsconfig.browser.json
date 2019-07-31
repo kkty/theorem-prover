@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es6"
+    ],
+    "target": "es6",
+    "module": "es6",
+    "declaration": true,
+    "outDir": "./dist.browser",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "downlevelIteration": true
+  },
+  "include": ["src"]
+}

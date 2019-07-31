@@ -1,2 +1,4 @@
 node_modules
 dist
+dist.browser
+.DS_Store
