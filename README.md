@@ -21,6 +21,12 @@ An automated theorem prover for first-order predicate logic written in TypeScrip
 
 ## Usage
 
+### Browser
+
+Available at [https://atp.kkty.jp/](https://atp.kkty.jp/).
+
+### Console
+
 - Requirements: Node.js (>=10)
 
 ```console
