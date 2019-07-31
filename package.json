@@ -1,6 +1,6 @@
 {
    "name": "theorem-prover",
-   "description": "A first-logic theorem prover written in TypeScript",
+   "description": "An automated theorem prover for first-order predicate logic written in TypeScript",
    "repository": {
       "type": "git",
       "url": "git+ssh://git@github.com/kkty/theorem-prover"
@@ -12,10 +12,12 @@
    },
    "main": "./dist.browser/lib.js",
    "files": [
-      "dist",
-      "dist.browser"
+      "bin/*",
+      "src/*",
+      "tsconfig.browser.json",
+      "tsconfig.json"
    ],
-   "version": "0.0.1",
+   "version": "0.0.3",
    "scripts": {
       "build": "tsc && tsc -p tsconfig.browser.json",
       "dev": "ts-node ./src/cli.ts",
@@ -26,6 +28,7 @@
    },
    "dependencies": {
       "@types/node": "^12.6.2",
+      "@types/pegjs": "^0.10.1",
       "pegjs": "^0.10.0",
       "typescript": "^3.5.3"
    },
