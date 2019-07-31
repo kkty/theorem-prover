@@ -36,7 +36,7 @@ rl.on('line', (input) => {
     console.log(clauses.map(i => i.toString()).join(', '));
     console.log();
 
-    const result = refute(clauses, 5000);
+    const result = refute(clauses, Number(process.env.THEOREM_PROVER_TIMEOUT) * 1000 || 5000);
 
     if (result === null) {
       console.log('cannot be proven');
