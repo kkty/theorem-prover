@@ -2,23 +2,6 @@
 
 An automated theorem prover for first-order predicate logic written in TypeScript. It can prove provable closed formulae by using resolution principle.
 
-## How it works
-
-- Let F1 be a closed formula, validity of which is in concern.
-- Get formula F2 by negating F1.
-  - F2 is unsatisfiable if and only if F1 is valid.
-- Get formula F3 which is logically equivalent to F2 and does not contain implications.
-  - F3 is unsutisfiable if and only if F2 is unsatisfiable.
-  - This is possible using the fact that `A implies B` is logically equivalent to `(not A) or B`.
-- Get formula F4 which is logically equivalent to F3 and negations in which are pushed inward as much as possible.
-  - F4 is unsutisfiable if and only if F3 is unsatisfiable.
-- Introduce skolem functions to F4 and remove all its quantifiers, let the obtained formula be F5.
-  - F5 is unsutisfiable if and only if F4 is unsatisfiable.
-- By pushsing disjunctions inward as much as possible, we can obtain a formula in CNF from F5. Let it be F6.
-- Let the corresponding set of clauses be C.
-- Perform resolution refutation on C.
-  - If the refutation succeeds (that is, if we obtain an empty clause from C by variabe replacements and resolutions), F6 is unsatisfiable. From this, we can say that F1 is valid.
-
 ## Usage
 
 ### Browser
@@ -173,3 +156,20 @@ getting clauses
 
 error: refutation timeout
 ```
+
+## How it works
+
+- Let F1 be a closed formula, validity of which is in concern.
+- Get formula F2 by negating F1.
+  - F2 is unsatisfiable if and only if F1 is valid.
+- Get formula F3 which is logically equivalent to F2 and does not contain implications.
+  - F3 is unsutisfiable if and only if F2 is unsatisfiable.
+  - This is possible using the fact that `A implies B` is logically equivalent to `(not A) or B`.
+- Get formula F4 which is logically equivalent to F3 and negations in which are pushed inward as much as possible.
+  - F4 is unsutisfiable if and only if F3 is unsatisfiable.
+- Introduce skolem functions to F4 and remove all its quantifiers, let the obtained formula be F5.
+  - F5 is unsutisfiable if and only if F4 is unsatisfiable.
+- By pushsing disjunctions inward as much as possible, we can obtain a formula in CNF from F5. Let it be F6.
+- Let the corresponding set of clauses be C.
+- Perform resolution refutation on C.
+  - If the refutation succeeds (that is, if we obtain an empty clause from C by variabe replacements and resolutions), F6 is unsatisfiable. From this, we can say that F1 is valid.
