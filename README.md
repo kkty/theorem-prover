@@ -6,7 +6,7 @@ An automated theorem prover for first-order predicate logic written in TypeScrip
 
 ### Browser
 
-Available at [https://atp.kkty.jp/](https://atp.kkty.jp/).
+Available at [https://theoremprover.kkty.jp/](https://theoremprover.kkty.jp/).
 
 ### Console
 
